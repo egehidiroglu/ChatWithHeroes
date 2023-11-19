@@ -1,0 +1,21 @@
+<div id="main-container">
+  <h1 id="title">Chat with Heroes</h1>
+
+  <div id="character-selection">
+    <%= image_tag 'anakin.png', alt: 'Anakin Skywalker', class: 'character-image', 'data-character': 'Anakin Skywalker' %>
+    <%= image_tag 'optimus.png', alt: 'Optimus Prime', class: 'character-image', 'data-character': 'Optimus Prime' %>
+    <%= image_tag 'batman.png', alt: 'Batman', class: 'character-image', 'data-character': 'Batman' %>
+  </div>
+
+  <%= form_with url: '/chat', method: :post, id: "chat-form", local: false do |form| %>
+    <%= form.hidden_field :character, id: "selected-character" %>
+    <%= form.label :message, 'Your Message' %>
+    <%= form.text_field :message, id: "chat-message" %>
+    <%= form.submit "Send", class: "submit-button" %>
+  <% end %>
+
+  <div id="transcript-box">
+  </div>
+  
+  <button id="record-button">Record</button>
+</div>
